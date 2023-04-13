@@ -1,7 +1,7 @@
 import express from 'express';
 import { MongoClient } from 'mongodb';
 
-console.log("test for terraform")
+console.log("test for terraform 2")
 
 const app = express();
 app.use(express.json())
