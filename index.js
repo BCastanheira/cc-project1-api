@@ -20,7 +20,8 @@ const messages_collection = client.db('cc-project1').collection('messages')
 
 app.get('/messages', (req, res) => {
     (async() => {
-        res.send(await messages_collection.find().toArray());
+        //res.send(await messages_collection.find().toArray());
+        res.send('hello world');
     })();
 });
 
