@@ -25,6 +25,8 @@ steps:
       - --image=${_GCR_REGION}.gcr.io/${_PROJECT_ID}/${_SERVICE_NAME}:$COMMIT_SHA
       - --region=${_LOCATION}
       - --platform=managed
+    env:
+      - 'PORT=3000'
 
 images:
   - "${_GCR_REGION}.gcr.io/${_PROJECT_ID}/${_SERVICE_NAME}:$COMMIT_SHA"
