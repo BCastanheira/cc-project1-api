@@ -10,8 +10,10 @@ const port = process.env.PORT || 3000;
 var uri = process.env.DATABASE_URI || 'localhost'
 
 //if (process.env.ENVIRONMENT == 'local') {
-    uri = `mongodb://${uri}:27017`
+//    uri = `mongodb://${uri}:27017`
 //}
+
+uri = 'mongodb+srv://bruno:6YQl3dpOumFmEOxN@ccprojectcluster.buskoab.mongodb.net/test'
 
 const client = new MongoClient(uri);
 const messages_collection = client.db('cc-project1').collection('messages')
