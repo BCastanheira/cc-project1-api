@@ -7,11 +7,11 @@ const app = express();
 app.use(express.json())
 
 const port = process.env.PORT || 3000;
-var uri = process.env.DATABASE_URI;
+var uri = process.env.DATABASE_URI || 'localhost'
 
-if (process.env.ENVIRONMENT == 'local') {
+//if (process.env.ENVIRONMENT == 'local') {
     uri = `mongodb://${uri}:27017`
-}
+//}
 
 const client = new MongoClient(uri);
 const messages_collection = client.db('cc-project1').collection('messages')
