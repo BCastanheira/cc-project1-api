@@ -3,13 +3,12 @@ steps:
   - name: "gcr.io/cloud-builders/docker"
     args:
       [
-        "build",
-        "--build-arg",
-        "PORT=3000",
         "-t",
         "${_GCR_REGION}.gcr.io/${_PROJECT_ID}/${_SERVICE_NAME}:$COMMIT_SHA",
         ".",
       ]
+    env:
+      - 'PORT=3000'
 
   # push the container image to Container Registry (GCR)
   - name: "gcr.io/cloud-builders/docker"
@@ -25,8 +24,6 @@ steps:
       - --image=${_GCR_REGION}.gcr.io/${_PROJECT_ID}/${_SERVICE_NAME}:$COMMIT_SHA
       - --region=${_LOCATION}
       - --platform=managed
-    env:
-      - 'PORT=3000'
 
 images:
   - "${_GCR_REGION}.gcr.io/${_PROJECT_ID}/${_SERVICE_NAME}:$COMMIT_SHA"
