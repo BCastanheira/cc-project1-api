@@ -10,6 +10,7 @@ steps:
       ]
     env:
       - 'PORT=3000'
+      - 'DATABASE_URI=${_DATABASE_URI}'
 
   # push the container image to Container Registry (GCR)
   - name: "gcr.io/cloud-builders/docker"
