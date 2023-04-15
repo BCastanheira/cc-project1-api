@@ -1,13 +1,13 @@
 import express from 'express';
 import { MongoClient } from 'mongodb';
 
-console.log("test for terraform 4")
-
 const app = express();
 app.use(express.json())
 
 const port = process.env.PORT || 3000;
 var uri = process.env.DATABASE_URI || 'localhost'
+
+console.log(uri)
 
 //if (process.env.ENVIRONMENT == 'local') {
 //    uri = `mongodb://${uri}:27017`
