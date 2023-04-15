@@ -4,13 +4,12 @@ steps:
     args:
       [
         "build",
+        "--build-arg",
+        "DATABASE_URI=${_DATABASE_URI}",
         "-t",
         "${_GCR_REGION}.gcr.io/${_PROJECT_ID}/${_SERVICE_NAME}:$COMMIT_SHA",
         ".",
       ]
-    env:
-      - 'PORT=3000'
-      - 'DATABASE_URI=${_DATABASE_URI}'
 
   # push the container image to Container Registry (GCR)
   - name: "gcr.io/cloud-builders/docker"
@@ -34,3 +33,4 @@ substitutions:
   _LOCATION: us-central1 # must be substituted
   _GCR_REGION: us # must be substituted
   _SERVICE_NAME: service-name # must be substituted
+  _DATABASE_URI: mongodb://localhost:27017 # must be substituted
