@@ -1,7 +1,7 @@
 import express from 'express';
 import { MongoClient } from 'mongodb';
 
-console.log("test for terraform 3")
+console.log("test for terraform 4")
 
 const app = express();
 app.use(express.json())
@@ -20,8 +20,8 @@ const messages_collection = client.db('cc-project1').collection('messages')
 
 app.get('/messages', (req, res) => {
     (async() => {
-        //res.send(await messages_collection.find().toArray());
-        res.send('hello world');
+        res.send(await messages_collection.find().toArray());
+        //res.send('hello world');
     })();
 });
 
