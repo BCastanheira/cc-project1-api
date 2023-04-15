@@ -5,7 +5,7 @@ steps:
       [
         "build",
         "--build-arg",
-        "DATABASE_URI=${_DATABASE_URI}",
+        "ATLAS_DB=${_DATABASE_URI}",
         "-t",
         "${_GCR_REGION}.gcr.io/${_PROJECT_ID}/${_SERVICE_NAME}:$COMMIT_SHA",
         ".",
