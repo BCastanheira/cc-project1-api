@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json())
 
 const port = process.env.PORT || 3000;
-var uri = process.env.DATABASE_URI || 'localhost'
+var uri = process.env.DATABASE_URI
 
 console.log(uri)
 
