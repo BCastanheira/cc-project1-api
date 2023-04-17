@@ -9,9 +9,9 @@ var uri = process.env.DATABASE_URI
 
 console.log(uri)
 
-//if (process.env.ENVIRONMENT == 'local') {
-//    uri = `mongodb://${uri}:27017`
-//}
+if (process.env.ENVIRONMENT && process.env.ENVIRONMENT == 'local') {
+    uri = `mongodb://${uri}:27017`
+}
 
 const client = new MongoClient(uri);
 const messages_collection = client.db('cc-project1').collection('messages')
