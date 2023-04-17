@@ -7,7 +7,7 @@ app.use(express.json())
 const port = process.env.PORT || 3000;
 var uri = process.env.DATABASE_URI
 
-console.log(uri)
+console.log('uri: '+uri)
 
 if (process.env.ENVIRONMENT && process.env.ENVIRONMENT == 'local') {
     uri = `mongodb://${uri}:27017`
