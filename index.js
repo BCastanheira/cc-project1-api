@@ -5,7 +5,6 @@ import cors from 'cors';
 const app = express();
 app.use(express.json())
 
-const cors = require('cors');
 app.use(cors({
     origin: '*'
 }));
