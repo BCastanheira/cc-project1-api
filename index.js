@@ -1,13 +1,20 @@
 import express from 'express';
 import { MongoClient } from 'mongodb';
+import cors from 'cors';
 
 const app = express();
 app.use(express.json())
 
-const port = process.env.PORT || 3000;
-var uri = process.env.DATABASE_URI;
+app.use(cors({
+    origin: '*'
+}));
 
-if (process.env.ENVIRONMENT == 'local') {
+const port = process.env.PORT || 3000;
+var uri = process.env.DATABASE_URI
+
+console.log('uri: '+uri)
+
+if (process.env.ENVIRONMENT && process.env.ENVIRONMENT == 'local') {
     uri = `mongodb://${uri}:27017`
 }
 
@@ -17,6 +24,7 @@ const messages_collection = client.db('cc-project1').collection('messages')
 app.get('/messages', (req, res) => {
     (async() => {
         res.send(await messages_collection.find().toArray());
+        //res.send('hello world');
     })();
 });
 
